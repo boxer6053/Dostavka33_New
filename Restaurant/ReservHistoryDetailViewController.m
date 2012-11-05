@@ -7,6 +7,7 @@
 //
 
 #import "ReservHistoryDetailViewController.h"
+#import "RestaurantAppDelegate.h"
 
 @interface ReservHistoryDetailViewController ()
 @property (strong, nonatomic) NSMutableData *responseData;
@@ -46,16 +47,19 @@
     [self setAllTitlesOnThisPage];
 
     NSMutableString *statusRequesString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/getStatusesReservations.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&UUID="];
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
-        {
-            NSString *uid = [self createUUID];
-            [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
-            //9E3C884C-6E57-4D16-884F-46132825F21E
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [statusRequesString appendString: uid];
-        }
-    else
-        [statusRequesString appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+     NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
+//    
+//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+//        {
+//            NSString *uid = [self createUUID];
+//            [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+//            //9E3C884C-6E57-4D16-884F-46132825F21E
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+//            [statusRequesString appendString: uid];
+//        }
+//    else
+       // [statusRequesString appendString:[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+    [statusRequesString appendString:deviceToken];
     
     statusRequesString = [statusRequesString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding].copy;
     
