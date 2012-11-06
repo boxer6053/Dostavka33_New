@@ -13,7 +13,7 @@
     UIImage *fbBackgroundImage = [UIImage imageNamed:@"FBbackgroundNew.png"];
     [self.backgroundImage setImage:fbBackgroundImage];
     
-    UIImage *fbTitleImage = [UIImage imageNamed:@"facebookTitle.png"];
+    UIImage *fbTitleImage = [UIImage imageNamed:@"facebookHeader.jpeg"];
     [self.titleImage setImage:fbTitleImage];
     
     [[NSNotificationCenter defaultCenter]

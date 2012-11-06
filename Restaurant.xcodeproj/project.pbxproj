@@ -176,6 +176,7 @@
 		F5FA62481580D39700FBF70A /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FA62471580D39700FBF70A /* FavoritesTableViewController.m */; };
 		FA243CAC16443D1F00E23E41 /* FacebookLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FA243CAA16443D1E00E23E41 /* FacebookLoginViewController.h */; };
 		FA243CAD16443D1F00E23E41 /* FacebookLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA243CAB16443D1E00E23E41 /* FacebookLoginViewController.m */; };
+		FA249A211649353800E73186 /* facebookHeader.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA249A201649353800E73186 /* facebookHeader.jpeg */; };
 		FA4B45851642A9E700EB157A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4B45841642A9E700EB157A /* FacebookSDK.framework */; };
 		FA4B45871642A9FA00EB157A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */; };
 		FACF0A9C1642C2FB005A18ED /* ShareViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FACF0A9A1642C2FB005A18ED /* ShareViewController.h */; };
@@ -385,6 +386,7 @@
 		F5FA62471580D39700FBF70A /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		FA243CAA16443D1E00E23E41 /* FacebookLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginViewController.h; sourceTree = "<group>"; };
 		FA243CAB16443D1E00E23E41 /* FacebookLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginViewController.m; sourceTree = "<group>"; };
+		FA249A201649353800E73186 /* facebookHeader.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = facebookHeader.jpeg; sourceTree = "<group>"; };
 		FA4B45841642A9E700EB157A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		FAB44C2C1646816E00EA43B5 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -574,6 +576,7 @@
 		78EF80B41573A51300478EEB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				FA249A201649353800E73186 /* facebookHeader.jpeg */,
 				F5142FF016245BAC00262BD2 /* New1.png */,
 				F5142FEE16245B6900262BD2 /* HIT1.png */,
 				F5142FEC16245B1B00262BD2 /* back_ .png */,
@@ -976,6 +979,7 @@
 				FAE71EB91647EE4F0024339A /* facebookTitle.png in Resources */,
 				FAE71EBB1647EE5B0024339A /* fbButton.png in Resources */,
 				FAE71EBD1647EE660024339A /* FBbackgroundNew.png in Resources */,
+				FA249A211649353800E73186 /* facebookHeader.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1139,7 +1143,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"/Users/matrixsoft/Documents/FacebookSDK\"",
+					"\"/Users/macbook/Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Restaurant/Restaurant-Prefix.pch";
@@ -1170,7 +1174,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"/Users/matrixsoft/Documents/FacebookSDK\"",
+					"\"/Users/macbook/Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Restaurant/Restaurant-Prefix.pch";
