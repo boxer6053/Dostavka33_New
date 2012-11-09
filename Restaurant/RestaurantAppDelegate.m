@@ -12,21 +12,31 @@ NSString *const FBSessionStateChangedNotification =
 @"com.Matrix-Soft.com.Matrix-Soft:FBSessionStateChangedNotification";
 @synthesize testToken1 = _testToken11;
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//	self.window.rootViewController = self.viewController;
+    //	self.window.rootViewController = self.viewController;
 	[self.window makeKeyAndVisible];
+    
     
 	// Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     return YES;
 }
+
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
-	NSLog(@"My token is: %@", deviceToken);
+    NSLog(@"My token is: %@", deviceToken);
     
     self.testToken1 = [[[deviceToken description]
                         stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]
@@ -67,12 +77,7 @@ NSString *const FBSessionStateChangedNotification =
     [FBSession.activeSession close];
 }
 #pragma mark Facebook
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [FBSession.activeSession handleOpenURL:url];
-}
+
 
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
