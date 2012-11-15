@@ -11,6 +11,7 @@
 #import "XMLParse.h"
 #import "checkConnection.h"
 #import "SSToolkit/SSLoadingView.h"
+#import "RestaurantAppDelegate.h"
 
 @interface LoadAppViewController ()
 
@@ -115,23 +116,37 @@
             NSLog(@"<<<<<<<<<Generating init request>>>>>>>>>>");
             self.isFirstTime = YES;
             NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=init&idPhone=1"];
-            
-            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
-            {
-                NSString *uid = [self createUUID];
-                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
-                //9E3C884C-6E57-4D16-884F-46132825F21E
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                [order appendFormat:@"&UUID=%@",uid];
-                
-            }
-            else
-                [order appendFormat:@"&UUID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+            NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
+            NSLog(@"deviceToken%@  ",deviceToken);
+            //                if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+            //                {
+            //                    NSString *uid = [self createUUID];
+            //                    [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+            //                    //9E3C884C-6E57-4D16-884F-46132825F21E
+            //                    [[NSUserDefaults standardUserDefaults] synchronize];
+            //                    [order appendString: uid];
+            //                }
+            //                else
+            [order appendFormat:@"&UUID=%@", deviceToken];
+
+//            
+//            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+//            {
+//                NSString *uid = [self createUUID];
+//                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+//                //9E3C884C-6E57-4D16-884F-46132825F21E
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                
+//                [order appendFormat:@"&UUID=%@",uid];
+//                
+//            }
+//            else
+//                [order appendFormat:@"&UUID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
             
             NSURL *url = [NSURL URLWithString:order];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
             [request setHTTPMethod:@"GET"];
+            NSLog(@"order%@", order);
             NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             if (!theConnection)
             {
@@ -173,18 +188,30 @@
             
             NSMutableString *myString = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/update.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=params&idPhone=1"];
             
-            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
-            {
-                NSString *uid = [self createUUID];
-                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
-                //9E3C884C-6E57-4D16-884F-46132825F21E
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                
-                [myString appendFormat:@"&UUID=%@",uid];
+            NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
+            //                if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+            //                {
+            //                    NSString *uid = [self createUUID];
+            //                    [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+            //                    //9E3C884C-6E57-4D16-884F-46132825F21E
+            //                    [[NSUserDefaults standardUserDefaults] synchronize];
+            //                    [order appendString: uid];
+            //                }
+            //                else
+            [myString appendFormat:@"&UUID=%@", deviceToken];
 
-            }
-            else
-                [myString appendFormat:@"&UUID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
+//            if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
+//            {
+//                NSString *uid = [self createUUID];
+//                [[NSUserDefaults standardUserDefaults] setValue:uid forKey:@"uid"];
+//                //9E3C884C-6E57-4D16-884F-46132825F21E
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                
+//                [myString appendFormat:@"&UUID=%@",uid];
+//
+//            }
+//            else
+//                [myString appendFormat:@"&UUID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"uid"]];
 
             
             [myString appendFormat:@"&city_v=%@",maxCityVersion];
