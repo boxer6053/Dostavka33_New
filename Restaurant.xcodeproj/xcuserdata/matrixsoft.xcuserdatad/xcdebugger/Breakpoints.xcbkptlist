@@ -77,9 +77,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "439"
-         endingLineNumber = "439"
-         landmarkName = "-actionSheet:clickedButtonAtIndex:"
-         landmarkType = "5">
+         endingLineNumber = "439">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -129,9 +127,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "258"
-         endingLineNumber = "258"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         endingLineNumber = "258">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -168,9 +164,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "119"
-         endingLineNumber = "119"
-         landmarkName = "-awakeFromNib"
-         landmarkType = "5">
+         endingLineNumber = "119">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -181,9 +175,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "359"
-         endingLineNumber = "359"
-         landmarkName = "-connectionDidFinishLoading:"
-         landmarkType = "5">
+         endingLineNumber = "359">
       </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>
