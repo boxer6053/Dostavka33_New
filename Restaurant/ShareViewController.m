@@ -6,7 +6,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *postCaptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *postDescriptionLabel;
 @property (strong, nonatomic) NSMutableDictionary *postParams;
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (strong, nonatomic) NSMutableData *imageData;
 @property (strong, nonatomic) NSURLConnection *imageConnection;
 
@@ -25,9 +24,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIImage *fbBackgroundImage = [UIImage imageNamed:@"FBbackgroundNew.png"];
-    [self.backgroundImage setImage:fbBackgroundImage];
     
     self.postParams =
     [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -66,7 +62,6 @@
         [self.imageConnection cancel];
         self.imageConnection = nil;
     }
-    [self setBackgroundImage:nil];
     [super viewDidUnload];
 }
 - (IBAction)share:(id)sender {

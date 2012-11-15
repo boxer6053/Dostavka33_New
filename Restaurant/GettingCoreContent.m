@@ -595,7 +595,7 @@
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"docDir"])
     {
-        docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        docDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         
         [[NSUserDefaults standardUserDefaults] setValue:docDir forKey:@"docDir"];
         [[NSUserDefaults standardUserDefaults] synchronize];
