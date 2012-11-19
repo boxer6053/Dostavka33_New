@@ -796,7 +796,8 @@
             NSManagedObject *objectToUpdate = [debug objectAtIndex:i];
             if(countOfProducts != 0)
             {
-                int curInt = [[objectToUpdate valueForKey:@"count"] intValue] + countOfProducts;
+//                int curInt = [[objectToUpdate valueForKey:@"count"] intValue] + countOfProducts;
+                int curInt = countOfProducts;
                 [objectToUpdate setValue:[NSNumber numberWithInt:curInt] forKey:@"count"];
             }
             allreadyInEntity = YES;
