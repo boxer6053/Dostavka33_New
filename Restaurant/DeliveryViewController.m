@@ -484,7 +484,7 @@
                 //    NSString *orderStringUrl = [@"http://matrix-soft.org/addon_domains_folder/test5/root/Customer_Scripts/makeOrder.php?tag=" stringByAppendingString: @"order"];
                 //    orderStringUrl = [orderStringUrl stringByAppendingString: @"&DBid=10&UUID=fdsampled-roma-roma-roma-69416d19df4e&ProdIDs=9;11&counts=30;5&city=Kyiv&street=qweqw&house=1&room_office=232&custName=eqweqwewqewe&phone=+380(099)9999999&idDelivery=1"];
                 
-                NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&UUID="];
+                NSMutableString *order = [NSMutableString stringWithFormat:@"%@%@%@%@", [[NSUserDefaults standardUserDefaults] valueForKey:@"dbLink"], @"/Customer_Scripts/makeOrder.php?", [[NSUserDefaults standardUserDefaults] valueForKey:@"DBid"], @"&tag=order&idPhone=1&UUID="];
                 NSString *deviceToken = [(RestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] testToken1];
 //                if (![[NSUserDefaults standardUserDefaults] objectForKey:@"uid"])
 //                {
