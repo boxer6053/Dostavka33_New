@@ -3,6 +3,8 @@
 
 @implementation RestaurantAppDelegate
 
+//before final push//
+
 @synthesize window = _window;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
