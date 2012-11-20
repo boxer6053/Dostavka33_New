@@ -1412,7 +1412,7 @@
                                                         </connections>
                                                     </button>
                                                     <view alpha="0.0" contentMode="scaleToFill" id="NCs-Y1-qXN">
-                                                        <rect key="frame" x="20" y="30" width="272" height="41"/>
+                                                        <rect key="frame" x="20" y="30" width="272" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="City:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="TBH-w4-lIT">
@@ -1422,15 +1422,8 @@
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Metro:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="CFI-ar-RFf">
-                                                                <rect key="frame" x="10" y="40" width="90" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Additional:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MOG-Az-0Mb">
-                                                                <rect key="frame" x="10" y="55" width="95" height="21"/>
+                                                                <rect key="frame" x="10" y="39" width="95" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1443,15 +1436,8 @@
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="h3O-KP-saZ">
-                                                                <rect key="frame" x="100" y="40" width="215" height="21"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DgI-RQ-K3l">
-                                                                <rect key="frame" x="100" y="55" width="193" height="21"/>
+                                                                <rect key="frame" x="100" y="39" width="193" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1588,8 +1574,6 @@
                         <outlet property="infoOfProductInOrderInnerView" destination="vsg-Rw-ULB" id="weB-bf-pp6"/>
                         <outlet property="mainView" destination="13n-hi-prY" id="roe-dO-MJd"/>
                         <outlet property="messageLabel" destination="AEn-mz-tFw" id="gpr-p8-fZy"/>
-                        <outlet property="metroDescriptionLabel" destination="h3O-KP-saZ" id="vqC-yr-o9d"/>
-                        <outlet property="metroLabel" destination="CFI-ar-RFf" id="Hu4-cu-k8N"/>
                         <outlet property="orderNumberLabel" destination="s1e-JW-ir8" id="usV-tO-gkI"/>
                         <outlet property="productName" destination="IHe-M7-Hxo" id="8E7-mS-oIp"/>
                         <outlet property="productPriceSumm" destination="sAq-9M-AH9" id="HhX-9w-qfT"/>

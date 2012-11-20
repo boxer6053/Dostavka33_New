@@ -148,7 +148,8 @@
     
     MapViewAnnotation *mapAnnotation = [[MapViewAnnotation alloc]initWithTitle:self.dataStruct.name withSubTitle:restaurantAddress withCoordinate:annotLocation];
     
-    [self.mapView addAnnotation:mapAnnotation];    
+    [self.mapView addAnnotation:mapAnnotation];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
