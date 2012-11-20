@@ -135,7 +135,7 @@
     
     [location setDistanceFilter:kCLDistanceFilterNone];
     [location setDesiredAccuracy:kCLLocationAccuracyBest];
-    
+        
     //[self.mapView setShowsUserLocation:YES];
     
     CLLocationCoordinate2D annotLocation;
@@ -177,7 +177,7 @@
 }
 
 - (IBAction)userLocation:(id)sender {
-    self.location = [[CLLocationManager alloc]init];
+//    self.location = [[CLLocationManager alloc]init];
     location.delegate = self;
     location.desiredAccuracy = kCLLocationAccuracyBest;
     location.distanceFilter = kCLDistanceFilterNone;
