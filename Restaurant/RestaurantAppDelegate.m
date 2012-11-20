@@ -19,6 +19,7 @@ NSString *const FBSessionStateChangedNotification =
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     // attempt to extract a token from the url
+    NSLog(@"openURLDelegate");
     return [FBSession.activeSession handleOpenURL:url];
 }
 
@@ -32,7 +33,14 @@ NSString *const FBSessionStateChangedNotification =
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    NSLog(@"application didFinishLaunchingWithOptions %@", self.testToken1);
     
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    NSLog(@"willFinish %@",self.testToken1);
     return YES;
 }
 
@@ -44,12 +52,21 @@ NSString *const FBSessionStateChangedNotification =
                         stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]
                        stringByReplacingOccurrencesOfString:@" "
                        withString:@""];
+   
+    [[NSUserDefaults standardUserDefaults] setValue:self.testToken1 forKey:@"deviceToken"];
+    NSLog(@"Token from user defaults %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"deviceToken"]);
+
     NSLog(@"newToken %@", self.testToken1);
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

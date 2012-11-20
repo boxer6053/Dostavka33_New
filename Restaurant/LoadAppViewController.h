@@ -10,8 +10,11 @@
 #import "XMLParse.h"
 #import "GettingCoreContent.h"
 #import "Singleton.h"
+@class RestaurantAppDelegate;
 
-@interface LoadAppViewController : UIViewController
+@interface LoadAppViewController : UIViewController {
+    RestaurantAppDelegate *mainDelegate;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, weak) NSString *city;
