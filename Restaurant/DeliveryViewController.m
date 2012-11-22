@@ -1,12 +1,6 @@
-//
-//  DeliveryViewController.m
-//  Restaurant
-//
-//  Created by Matrix Soft on 6/13/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
-//
-
 #import "DeliveryViewController.h"
+#import  <FacebookSDK/FacebookSDK.h>
+
 
 @interface DeliveryViewController ()
 {
@@ -20,6 +14,9 @@
 @property (strong, nonatomic) NSMutableString *counts;
 @property (strong, nonatomic) SSHUDView *hudView;
 @property (strong, nonatomic) NSString *dateString;
+@property (strong, nonatomic) NSString *currentUserName;
+@property (strong, nonatomic) NSMutableDictionary *getParams;
+
 
 //titles
 @property (strong, nonatomic) NSString *titleThankYouForOrder;
@@ -52,6 +49,8 @@
 @synthesize dictionary = _dictionary;
 @synthesize historyDictionary =_historyDictionary;
 @synthesize hudView;
+@synthesize currentUserName = _currentUserName;
+@synthesize getParams = _getParams;
 
 @synthesize tapRecognizer = _tapRecognizer;
 @synthesize textFieldForFeils = _textFieldForFeils;
@@ -115,12 +114,37 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    RestaurantAppDelegate *appDelegate =
+    [[UIApplication sharedApplication] delegate];
+    [appDelegate openSessionWithAllowLoginUI:YES];
+    
     NSArray *arrayOfAddresses = [self.content getArrayFromCoreDatainEntetyName:@"Addresses" withSortDescriptor:@"name"];
     if (arrayOfAddresses.count != 0)
     {
         //[self performSelector:@selector(showListOfAddresses:) withObject:nil];
         [self performSegueWithIdentifier:@"toAddressList" sender:self];
     }
+}
+
+- (void)sessionStateChanged:(NSNotification*)notification {
+    if (FBSession.activeSession.isOpen) {
+        [self getCurrentUserName];
+    } else {
+        NSLog(@"You aren't loggin,bro");
+    }
+}
+
+-(void) getCurrentUserName
+{
+    [FBRequestConnection
+     startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                       id<FBGraphUser> user,
+                                       NSError *error) {
+         if (!error) {
+             customerName.text = user.name;
+         }
+     }
+     ];
 }
 
 - (NSString *)getCurrentCityName
@@ -146,8 +170,16 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(sessionStateChanged:)
+     name:FBSessionStateChangedNotification
+     object:nil];
+    
     NSString *cityName = [self getCurrentCityName];
     self.CityName.text = cityName;
+    
+    [self getCurrentUserName];
     
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
     mainGradient.frame = self.scrollView.bounds;
@@ -586,11 +618,6 @@
                                                                otherButtonTitles:nil];
             [connectFailMessage show];
         }
-//    }
-//    else
-//    {
-//        // send order delivery by Time
-//    }
 }
 
 - (IBAction)saveAddress:(id)sender
