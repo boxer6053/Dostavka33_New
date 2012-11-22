@@ -27,15 +27,15 @@
 @property (strong, nonatomic) IBOutlet UIView *infoOfProductInOrderInnerView;
 @property (strong, nonatomic) IBOutlet UIButton *showOrHideButtonSecond;
 @property (strong, nonatomic) IBOutlet UIView *infoOfProductInOrderDetailView;
-@property (strong, nonatomic) IBOutlet UILabel *tempLabel2;
+//@property (strong, nonatomic) IBOutlet UILabel *tempLabel2;
 @property (strong, nonatomic) NSDictionary *historyDictionary;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
-@property (strong, nonatomic) IBOutlet UILabel *metroLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *metroLabel;
 @property (strong, nonatomic) IBOutlet UILabel *additionalLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cityDescriptionLabel;
-@property (strong, nonatomic) IBOutlet UILabel *metroDescriptionLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *metroDescriptionLabel;
 @property (strong, nonatomic) IBOutlet UILabel *additionalDescriptionLabel;
 @property (strong, nonatomic) GettingCoreContent *db;
 @property (strong, nonatomic) IBOutlet UILabel *productName;

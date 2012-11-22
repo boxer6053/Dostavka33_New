@@ -31,7 +31,12 @@
 
 @end
 
-@implementation DeliveryViewController
+@implementation DeliveryViewController {
+    CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+}
+
 @synthesize scrollView;
 @synthesize addressName;
 @synthesize customerName;
@@ -60,6 +65,8 @@
 @synthesize pickerViewContainer;
 @synthesize db = _db;
 @synthesize dateString = _dateString;
+@synthesize locationCity = _locationCity;
+@synthesize locationStreet = _locationStreet;
 
 //titles
 @synthesize titleThankYouForOrder = _titleThankYouForOrder;
@@ -164,6 +171,59 @@
     }
     
     return nil;
+}
+
+- (void)getCurrentLocation
+{
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+//        self.longtitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+//        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    // Stop Location Manager
+    [locationManager stopUpdatingLocation];
+    
+    // Reverse Geocoding
+    NSLog(@"Resolving the Address");
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            //            self.addressLabel.text = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+            //                                      placemark.subThoroughfare, placemark.thoroughfare,
+            //                                      placemark.postalCode, placemark.locality,
+            //                                      placemark.administrativeArea,
+            //                                      placemark.country];
+            
+//            self.subThoroughfare = [NSString stringWithString:placemark.subThoroughfare];
+            self.street.text = [NSString stringWithString:placemark.thoroughfare];
+//            self.postalCode = [NSString stringWithString:placemark.postalCode];
+            self.CityName.text = [NSString stringWithString:placemark.locality];
+//            self.administrativeArea = [NSString stringWithString:placemark.administrativeArea];
+//            self.country = [NSString stringWithString:placemark.country];
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
 }
 
 - (void)viewDidLoad

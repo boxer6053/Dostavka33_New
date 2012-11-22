@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "GettingCoreContent.h"
 #import "AddressListTableViewController.h"
 #import "TimePicker.h"
@@ -16,7 +17,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RestaurantAppDelegate.h"
 
-@interface DeliveryViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate, AddressListDelegate, UIScrollViewDelegate>
+@interface DeliveryViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate, AddressListDelegate, UIScrollViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *addressName;
 @property (strong, nonatomic) IBOutlet UITextField *customerName;
@@ -47,6 +48,9 @@
 @property (strong, nonatomic) TimePicker *pickerViewContainer;
 
 @property (nonatomic)BOOL enableTime;
+
+@property (nonatomic, strong) NSString *locationStreet;
+@property (nonatomic, strong) NSString *locationCity;
 
 //Hello Andrew again
 

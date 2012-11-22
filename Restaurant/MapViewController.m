@@ -135,7 +135,7 @@
     
     [location setDistanceFilter:kCLDistanceFilterNone];
     [location setDesiredAccuracy:kCLLocationAccuracyBest];
-    
+        
     //[self.mapView setShowsUserLocation:YES];
     
     CLLocationCoordinate2D annotLocation;
@@ -148,7 +148,8 @@
     
     MapViewAnnotation *mapAnnotation = [[MapViewAnnotation alloc]initWithTitle:self.dataStruct.name withSubTitle:restaurantAddress withCoordinate:annotLocation];
     
-    [self.mapView addAnnotation:mapAnnotation];    
+    [self.mapView addAnnotation:mapAnnotation];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -176,7 +177,7 @@
 }
 
 - (IBAction)userLocation:(id)sender {
-    self.location = [[CLLocationManager alloc]init];
+//    self.location = [[CLLocationManager alloc]init];
     location.delegate = self;
     location.desiredAccuracy = kCLLocationAccuracyBest;
     location.distanceFilter = kCLDistanceFilterNone;

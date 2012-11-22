@@ -12,6 +12,7 @@
 #import "checkConnection.h"
 #import "SSToolkit/SSLoadingView.h"
 #import "RestaurantAppDelegate.h"
+
 @interface LoadAppViewController ()
 
 @property (strong, nonatomic) NSMutableData *responseData;

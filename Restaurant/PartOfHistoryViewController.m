@@ -34,7 +34,7 @@
 @synthesize infoOfProductInOrderInnerView = _infoOfProductInOrderInnerView;
 @synthesize showOrHideButtonSecond = _showOrHideButtonSecond;
 @synthesize infoOfProductInOrderDetailView = _infoOfProductInOrderDetailView;
-@synthesize tempLabel2 = _tempLabel2;
+//@synthesize tempLabel2 = _tempLabel2;
 @synthesize isInfoOfOrderShow = _isInfoOfOrderShow;
 @synthesize firstContainerX = _firstContainerX;
 @synthesize firstContainerY = _firstContainerY;
@@ -48,11 +48,11 @@
 @synthesize historyDictionary = _historyDictionary;
 @synthesize addressLabel = _addressLabel;
 @synthesize cityLabel = _cityLabel;
-@synthesize metroLabel = _metroLabel;
+//@synthesize metroLabel = _metroLabel;
 @synthesize additionalLabel = _additionalLabel;
 @synthesize addressDescriptionLabel = _addressDescriptionLabel;
 @synthesize cityDescriptionLabel = _cityDescriptionLabel;
-@synthesize metroDescriptionLabel = _metroDescriptionLabel;
+//@synthesize metroDescriptionLabel = _metroDescriptionLabel;
 @synthesize additionalDescriptionLabel = _additionalDescriptionLabel;
 @synthesize db = _db;
 @synthesize productName = _productName;
@@ -124,7 +124,7 @@
         
     self.addressDescriptionLabel.text = [NSString stringWithFormat:@"%@%@%@%@%@", [self.historyDictionary valueForKey:@"street"], @", ", [self.historyDictionary valueForKey:@"house"], @"/", [self.historyDictionary valueForKey:@"room_office"]];
     self.cityDescriptionLabel.text = [self.historyDictionary valueForKey:@"city"];
-    self.metroDescriptionLabel.text = [self.historyDictionary valueForKey:@"metro"];
+//    self.metroDescriptionLabel.text = [self.historyDictionary valueForKey:@"metro"];
     self.additionalDescriptionLabel.text = [self.historyDictionary valueForKey:@"additional_info"];
     
 //    self.productName.text = [[[[self.productsArray objectAtIndex:0] valueForKey:@"resultArray"] objectAtIndex:1] valueForKey:@"nameText"];
@@ -362,12 +362,12 @@
     [self setInfoOfProductInOrderInnerView:nil];
     [self setShowOrHideButtonSecond:nil];
     [self setInfoOfProductInOrderDetailView:nil];
-    [self setTempLabel2:nil];
+//    [self setTempLabel2:nil];
     [self setCityLabel:nil];
-    [self setMetroLabel:nil];
+//    [self setMetroLabel:nil];
     [self setAdditionalLabel:nil];
     [self setCityDescriptionLabel:nil];
-    [self setMetroDescriptionLabel:nil];
+//    [self setMetroDescriptionLabel:nil];
     [self setAdditionalDescriptionLabel:nil];
     [self setAddressLabel:nil];
     [self setAddressDescriptionLabel:nil];
@@ -496,15 +496,16 @@
         self.infoOfProductInOrderContainer.frame = CGRectMake(self.secondContainerX, self.firstContainerY + self.infoOfOrderContainer.frame.size.height - 1, self.secondContainerWidth, self.secondContainerHeight);
         
         self.reorderButton.frame = CGRectMake(self.reorderButton.frame.origin.x, self.infoOfProductInOrderContainer.frame.origin.y + self.infoOfProductInOrderContainer.frame.size.height + 70, self.reorderButton.frame.size.width, self.reorderButton.frame.size.height);
-
-        [UIView commitAnimations];
         
         [self.scrollView setContentSize:CGSizeMake(320 , self.reorderButton.frame.origin.y + self.reorderButton.frame.size.height)];
-        
+
+        [UIView commitAnimations];
+                
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration:0.2];
         [self.infoOfProductInOrderDetailView setAlpha:0];
         [UIView commitAnimations];
+        
 
         self.isInfoOfProductInOrder = NO;
     }
@@ -578,10 +579,10 @@
         {
             self.cityLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
         }
-        else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Subway:"])
-        {
-            self.metroLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
-        }
+//        else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Subway:"])
+//        {
+//            self.metroLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
+//        }
         else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Address:"])
         {
             self.addressLabel.text = [[array objectAtIndex:i] valueForKey:@"title"];
