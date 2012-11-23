@@ -6,7 +6,7 @@
 {
     int currentAddressIndex;
 }
-
+@property (strong, nonatomic) RestaurantAppDelegate *appDelegate;
 @property (strong, nonatomic) UITapGestureRecognizer *tapRecognizer;
 @property (strong, nonatomic) UITextField *textFieldForFeils;
 @property (strong, nonatomic) NSMutableData *responseData;
@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSString *titleWrongTime;
 @property (strong, nonatomic) NSString *titleDontRichMinimumPrice;
 @property (strong, nonatomic) NSString *titleIncorectPhoneNumber;
+@property (strong, nonatomic) NSString *titleFacebookQuestion;
 
 @end
 
@@ -42,20 +43,18 @@
 @synthesize customerName;
 @synthesize phone;
 @synthesize CityName;
-//@synthesize metroName;
 @synthesize street;
 @synthesize build;
 @synthesize appartaments;
 @synthesize otherInformation;
 @synthesize deliveryTime;
-//@synthesize access;
-//@synthesize intercom;
-//@synthesize floor;
 @synthesize dictionary = _dictionary;
 @synthesize historyDictionary =_historyDictionary;
 @synthesize hudView;
 @synthesize currentUserName = _currentUserName;
-@synthesize getParams = _getParams;
+@synthesize alert = _alert;
+@synthesize appDelegate = _appDelegate;
+
 
 @synthesize tapRecognizer = _tapRecognizer;
 @synthesize textFieldForFeils = _textFieldForFeils;
@@ -78,6 +77,7 @@
 @synthesize titleEnterJustNombers = _titleEnterJustNombers;
 @synthesize titleDontRichMinimumPrice = _titleDontRichMinimumPrice;
 @synthesize titleIncorectPhoneNumber = _titleIncorectPhoneNumber;
+@synthesize titleFacebookQuestion = _titleFacebookQuestion;
 
 - (GettingCoreContent *)content
 {
@@ -121,37 +121,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    RestaurantAppDelegate *appDelegate =
-    [[UIApplication sharedApplication] delegate];
-    [appDelegate openSessionWithAllowLoginUI:YES];
-    
     NSArray *arrayOfAddresses = [self.content getArrayFromCoreDatainEntetyName:@"Addresses" withSortDescriptor:@"name"];
     if (arrayOfAddresses.count != 0)
     {
         //[self performSelector:@selector(showListOfAddresses:) withObject:nil];
         [self performSegueWithIdentifier:@"toAddressList" sender:self];
     }
-}
-
-- (void)sessionStateChanged:(NSNotification*)notification {
-    if (FBSession.activeSession.isOpen) {
-        [self getCurrentUserName];
-    } else {
-        NSLog(@"You aren't loggin,bro");
-    }
-}
-
--(void) getCurrentUserName
-{
-    [FBRequestConnection
-     startForMeWithCompletionHandler:^(FBRequestConnection *connection,
-                                       id<FBGraphUser> user,
-                                       NSError *error) {
-         if (!error) {
-             customerName.text = user.name;
-         }
-     }
-     ];
 }
 
 - (NSString *)getCurrentCityName
@@ -226,27 +201,55 @@
     } ];
 }
 
+-(void) getCurrentUserName
+{
+    [FBRequestConnection
+     startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                       id<FBGraphUser> user,
+                                       NSError *error) {
+         if (!error) {
+             customerName.text = user.name;
+         }
+     }];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if (buttonIndex == 1)
+    {
+        if (FBSession.activeSession.isOpen) {
+            [self getCurrentUserName];
+        } else {
+            [_appDelegate openSessionWithAllowLoginUI:YES];
+        }
+    };
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    [self setAllTitlesOnThisPage];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(sessionStateChanged:)
-     name:FBSessionStateChangedNotification
-     object:nil];
+    _appDelegate = [[UIApplication sharedApplication] delegate];
+    [_appDelegate openSessionWithAllowLoginUI:NO];
+    
+    [super viewDidLoad];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:self.titleFacebookQuestion delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes",nil];
+    [alert show];
+                
+    
+    locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
     
     NSString *cityName = [self getCurrentCityName];
     self.CityName.text = cityName;
     
-    [self getCurrentUserName];
+    [self getCurrentLocation];
     
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
     mainGradient.frame = self.scrollView.bounds;
     mainGradient.colors = [NSArray arrayWithObjects:(id)[[UIColor blackColor] CGColor], (id)[[UIColor darkGrayColor] CGColor],(id)[[UIColor blackColor] CGColor], nil];
     [self.scrollView.layer insertSublayer:mainGradient atIndex:0];
-    
-    [self setAllTitlesOnThisPage];
 	
     self.scrollView.contentSize = CGSizeMake(320, 430);
 
@@ -1052,6 +1055,10 @@
         else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Phone Number Digit Must be min 7"])
         {
             self.titleIncorectPhoneNumber = [[array objectAtIndex:i] valueForKey:@"title"];
+        }
+        else if ([[[array objectAtIndex:i] valueForKey:@"name_EN"] isEqualToString:@"Do you want to use your information from Facebook?"])
+        {
+            self.titleFacebookQuestion = [[array objectAtIndex:i] valueForKey:@"title"];
         }
     }
 }

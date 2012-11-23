@@ -138,7 +138,7 @@ NSString *const FBSessionStateChangedNotification =
                                                              NSError *error) {
                                              [self sessionStateChanged:session
                                                                  state:state
-                                                                 error:error];
+                                                                 error:NULL];
                                          }];
 }
 

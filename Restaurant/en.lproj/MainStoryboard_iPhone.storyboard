@@ -904,17 +904,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="67G-6b-o1q">
-                                <rect key="frame" x="248" y="265" width="52" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ymY-eY-Era"/>
                     <connections>
                         <outlet property="authButton" destination="3RI-ln-D9D" id="Z7A-sQ-hwL"/>
-                        <outlet property="backgroundImage" destination="67G-6b-o1q" id="4vK-eU-nZV"/>
                         <outlet property="publishButton" destination="Czj-MJ-u9O" id="4bB-BT-Ffm"/>
                         <outlet property="titleImage" destination="k3M-Hd-6kx" id="EYG-1u-wGZ"/>
                     </connections>

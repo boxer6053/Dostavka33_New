@@ -9,8 +9,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    UIImage *fbBackgroundImage = [UIImage imageNamed:@"FBbackgroundNew.png"];
-//    [self.backgroundImage setImage:fbBackgroundImage];
     
     UIImage *fbTitleImage = [UIImage imageNamed:@"facebookHeader.jpeg"];
     [self.titleImage setImage:fbTitleImage];
@@ -65,7 +63,6 @@
     [self setAuthButton:nil];
     [self setPublishButton:nil];
     [self setTitleImage:nil];
-    [self setBackgroundImage:nil];
     [super viewDidUnload];
 }
 @end
