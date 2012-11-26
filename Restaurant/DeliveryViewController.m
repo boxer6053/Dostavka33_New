@@ -121,6 +121,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
     NSArray *arrayOfAddresses = [self.content getArrayFromCoreDatainEntetyName:@"Addresses" withSortDescriptor:@"name"];
     if (arrayOfAddresses.count != 0)
     {
@@ -215,13 +216,14 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    
     if (buttonIndex == 1)
     {
-        if (FBSession.activeSession.isOpen) {
+        _appDelegate = [[UIApplication sharedApplication] delegate];
+        [_appDelegate openSessionWithAllowLoginUI:YES];
+        
+        if (FBSession.activeSession.isOpen)
+        {
             [self getCurrentUserName];
-        } else {
-            [_appDelegate openSessionWithAllowLoginUI:YES];
         }
     };
 }
@@ -230,13 +232,14 @@
 {
     [self setAllTitlesOnThisPage];
     
-    _appDelegate = [[UIApplication sharedApplication] delegate];
-    [_appDelegate openSessionWithAllowLoginUI:NO];
-    
     [super viewDidLoad];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:self.titleFacebookQuestion delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes",nil];
     [alert show];
-                
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(getCurrentUserName)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
