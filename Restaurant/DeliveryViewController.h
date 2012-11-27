@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RestaurantAppDelegate.h"
 
-@interface DeliveryViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate, AddressListDelegate, UIScrollViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface DeliveryViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDelegate, AddressListDelegate, UIScrollViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *addressName;
 @property (strong, nonatomic) IBOutlet UITextField *customerName;
@@ -21,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *otherInformation;
 @property (strong, nonatomic) IBOutlet UITextField *deliveryTime;
 @property (strong, nonatomic) XMLParseResponseFromTheServer *db;
-@property (strong,nonatomic) UIAlertView *alert;
 
 @property (weak, nonatomic) IBOutlet UIButton *toOrderButton;
 @property (weak, nonatomic) IBOutlet UIButton *saveAddressButton;
