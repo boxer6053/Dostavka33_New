@@ -1,5 +1,4 @@
 #import "DeliveryViewController.h"
-#import  <FacebookSDK/FacebookSDK.h>
 
 
 @interface DeliveryViewController ()
@@ -14,8 +13,6 @@
 @property (strong, nonatomic) NSMutableString *counts;
 @property (strong, nonatomic) SSHUDView *hudView;
 @property (strong, nonatomic) NSString *dateString;
-@property (strong, nonatomic) NSString *currentUserName;
-@property (strong, nonatomic) NSMutableDictionary *getParams;
 
 
 //titles
@@ -51,9 +48,6 @@
 @synthesize dictionary = _dictionary;
 @synthesize historyDictionary =_historyDictionary;
 @synthesize hudView;
-@synthesize currentUserName = _currentUserName;
-@synthesize alert = _alert;
-@synthesize appDelegate = _appDelegate;
 
 
 @synthesize tapRecognizer = _tapRecognizer;
@@ -202,44 +196,11 @@
     } ];
 }
 
--(void) getCurrentUserName
-{
-    [FBRequestConnection
-     startForMeWithCompletionHandler:^(FBRequestConnection *connection,
-                                       id<FBGraphUser> user,
-                                       NSError *error) {
-         if (!error) {
-             customerName.text = user.name;
-         }
-     }];
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1)
-    {
-        _appDelegate = [[UIApplication sharedApplication] delegate];
-        [_appDelegate openSessionWithAllowLoginUI:YES];
-        
-        if (FBSession.activeSession.isOpen)
-        {
-            [self getCurrentUserName];
-        }
-    };
-}
-
 - (void)viewDidLoad
 {
     [self setAllTitlesOnThisPage];
     
     [super viewDidLoad];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:self.titleFacebookQuestion delegate:self cancelButtonTitle:@"No" otherButtonTitles: @"Yes",nil];
-    [alert show];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(getCurrentUserName)
-                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
