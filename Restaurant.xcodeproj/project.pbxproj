@@ -64,6 +64,7 @@
 		F5142FF116245BAC00262BD2 /* New1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5142FF016245BAC00262BD2 /* New1.png */; };
 		F514734C15E3A40D003E836B /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = F514734B15E3A40D003E836B /* stop.png */; };
 		F515440D15B03CCB00A2CB88 /* FavoritesIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F515440C15B03CCB00A2CB88 /* FavoritesIconViewController.m */; };
+		F515684C166D133B002C993A /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A518A2166D12DD009D2F60 /* libSSToolkit.a */; };
 		F51635AA15E61CBA00F76ECE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51635AC15E61CBA00F76ECE /* MainStoryboard_iPad.storyboard */; };
 		F51A455D15E3DDC600FD0BB9 /* alphanumeric-plus-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = F51A455C15E3DDC600FD0BB9 /* alphanumeric-plus-sign.png */; };
 		F51B206215AB2EE600074DA1 /* white-cart_big.png in Resources */ = {isa = PBXBuildFile; fileRef = F51B206115AB2EE500074DA1 /* white-cart_big.png */; };
@@ -72,7 +73,6 @@
 		F52225D31594BCA4003E2728 /* Button_black_dark_rev2.png in Resources */ = {isa = PBXBuildFile; fileRef = F52225D21594BCA4003E2728 /* Button_black_dark_rev2.png */; };
 		F52A6A201594BF8D00C96F2C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F52A6A1F1594BF8D00C96F2C /* back.png */; };
 		F530828E163084D6007A4A7B /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F530827D1630849D007A4A7B /* libGMGridView.a */; };
-		F530828F163084D6007A4A7B /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5308289163084A9007A4A7B /* libSSToolkit.a */; };
 		F53AF1701598876100EAA5AA /* MenuIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53AF16F1598876100EAA5AA /* MenuIconViewController.m */; };
 		F53BA7A3161C83DA00AF79DF /* arrow3_cancel_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F53BA7A0161C83DA00AF79DF /* arrow3_cancel_red.png */; };
 		F53BA7A4161C83DA00AF79DF /* arrow3_green.png in Resources */ = {isa = PBXBuildFile; fileRef = F53BA7A1161C83DA00AF79DF /* arrow3_green.png */; };
@@ -194,23 +194,23 @@
 			remoteGlobalIDString = 78509312149FAC2E000787E4;
 			remoteInfo = GMGridView;
 		};
-		F5308288163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5A518A1166D12DD009D2F60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = SSToolkit;
 		};
-		F530828A163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5A518A3166D12DD009D2F60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
 			remoteInfo = SSToolkitTests;
 		};
-		F530828C163084A9007A4A7B /* PBXContainerItemProxy */ = {
+		F5A518A5166D12DD009D2F60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+			containerPortal = F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B2C507EA151BA64400E94614;
 			remoteInfo = SSToolkitResources;
@@ -309,7 +309,6 @@
 		F52225D21594BCA4003E2728 /* Button_black_dark_rev2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_black_dark_rev2.png; sourceTree = "<group>"; };
 		F52A6A1F1594BF8D00C96F2C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		F53082751630849D007A4A7B /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = ../../GMGridView/GMGridView.xcodeproj; sourceTree = "<group>"; };
-		F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = ../../Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
 		F53AF16E1598876100EAA5AA /* MenuIconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuIconViewController.h; sourceTree = "<group>"; };
 		F53AF16F1598876100EAA5AA /* MenuIconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuIconViewController.m; sourceTree = "<group>"; };
 		F53BA7A0161C83DA00AF79DF /* arrow3_cancel_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow3_cancel_red.png; sourceTree = "<group>"; };
@@ -353,6 +352,7 @@
 		F59A9ECF16034C3800D8A6ED /* HistoryPartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPartCell.xib; sourceTree = "<group>"; };
 		F59A9EDB16034DC600D8A6ED /* buttonPlayRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlayRight.png; sourceTree = "<group>"; };
 		F59A9EDC16034DC600D8A6ED /* buttonPlayDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlayDown.png; sourceTree = "<group>"; };
+		F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = /Users/matrixsoft/GMGridView/../Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<absolute>"; };
 		F5ACDBC915DBEE510074E028 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F5B4609515C2B78F00A6815C /* Cart1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cart1.PNG; sourceTree = "<group>"; };
 		F5B4609915C2BF7900A6815C /* shopping-cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shopping-cart.png"; sourceTree = "<group>"; };
@@ -404,11 +404,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F515684C166D133B002C993A /* libSSToolkit.a in Frameworks */,
 				F5EA2584164808810024202D /* Social.framework in Frameworks */,
 				F5EA2583164808780024202D /* AdSupport.framework in Frameworks */,
 				F5EA25821648085B0024202D /* Accounts.framework in Frameworks */,
 				F530828E163084D6007A4A7B /* libGMGridView.a in Frameworks */,
-				F530828F163084D6007A4A7B /* libSSToolkit.a in Frameworks */,
 				F5F1058E15DD2E1200B03533 /* libsqlite3.0.dylib in Frameworks */,
 				F5ACDBCA15DBEE510074E028 /* Twitter.framework in Frameworks */,
 				F591ECD815CD723C006BD0E6 /* CoreLocation.framework in Frameworks */,
@@ -448,12 +448,12 @@
 		781B8F061546DB870074EDBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */,
 				FAB44C301646817D00EA43B5 /* Accounts.framework */,
 				FAB44C2E1646817400EA43B5 /* AdSupport.framework */,
 				FAB44C2C1646816E00EA43B5 /* Social.framework */,
 				FA4B45861642A9FA00EB157A /* FacebookSDKResources.bundle */,
 				FA4B45841642A9E700EB157A /* FacebookSDK.framework */,
-				F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */,
 				F53082751630849D007A4A7B /* GMGridView.xcodeproj */,
 				F5F1058D15DD2E1200B03533 /* libsqlite3.0.dylib */,
 				F5ACDBC915DBEE510074E028 /* Twitter.framework */,
@@ -672,16 +672,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F530827F163084A9007A4A7B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F5308289163084A9007A4A7B /* libSSToolkit.a */,
-				F530828B163084A9007A4A7B /* SSToolkitTests.app */,
-				F530828D163084A9007A4A7B /* SSToolkitResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		F53AF1721598877700EAA5AA /* Type of View */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +685,16 @@
 				F515440C15B03CCB00A2CB88 /* FavoritesIconViewController.m */,
 			);
 			name = "Type of View";
+			sourceTree = "<group>";
+		};
+		F5A5189C166D12DD009D2F60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5A518A2166D12DD009D2F60 /* libSSToolkit.a */,
+				F5A518A4166D12DD009D2F60 /* SSToolkitTests.app */,
+				F5A518A6166D12DD009D2F60 /* SSToolkitResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F5DCCB7615A3279500739B11 /* AFNetworking */ = {
@@ -869,8 +869,8 @@
 					ProjectRef = F53082751630849D007A4A7B /* GMGridView.xcodeproj */;
 				},
 				{
-					ProductGroup = F530827F163084A9007A4A7B /* Products */;
-					ProjectRef = F530827E163084A9007A4A7B /* SSToolkit.xcodeproj */;
+					ProductGroup = F5A5189C166D12DD009D2F60 /* Products */;
+					ProjectRef = F5A5189B166D12DD009D2F60 /* SSToolkit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -888,25 +888,25 @@
 			remoteRef = F530827C1630849D007A4A7B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F5308289163084A9007A4A7B /* libSSToolkit.a */ = {
+		F5A518A2166D12DD009D2F60 /* libSSToolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libSSToolkit.a;
-			remoteRef = F5308288163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5A518A1166D12DD009D2F60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F530828B163084A9007A4A7B /* SSToolkitTests.app */ = {
+		F5A518A4166D12DD009D2F60 /* SSToolkitTests.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = SSToolkitTests.app;
-			remoteRef = F530828A163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5A518A3166D12DD009D2F60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F530828D163084A9007A4A7B /* SSToolkitResources.bundle */ = {
+		F5A518A6166D12DD009D2F60 /* SSToolkitResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SSToolkitResources.bundle;
-			remoteRef = F530828C163084A9007A4A7B /* PBXContainerItemProxy */;
+			remoteRef = F5A518A5166D12DD009D2F60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

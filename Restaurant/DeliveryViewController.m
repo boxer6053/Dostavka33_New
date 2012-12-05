@@ -204,10 +204,7 @@
     
     locationManager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
-    
-    NSString *cityName = [self getCurrentCityName];
-    self.CityName.text = cityName;
-    
+        
     [self getCurrentLocation];
     
     CAGradientLayer *mainGradient = [CAGradientLayer layer];
