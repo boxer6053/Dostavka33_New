@@ -18,7 +18,7 @@
      selector:@selector(sessionStateChanged:)
      name:FBSessionStateChangedNotification
      object:nil];
-    
+    //оо
     RestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate openSessionWithAllowLoginUI:NO];
 }
